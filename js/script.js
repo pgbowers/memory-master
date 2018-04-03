@@ -1,3 +1,8 @@
+// some variables to hold the buttons
+var playGameButton = document.getElementById("playGame-button");
+var gameOverButton = document.getElementById("gameOver-button");
+var playAgainButton = document.getElementById("playAgain-button");
+
 const cardsArray = [{
         'name': 'shell',
         'img': 'img/blueshell.png',
@@ -55,6 +60,7 @@ const gameGrid = cardsArray
 let firstGuess = '';
 let secondGuess = '';
 let count = 0;
+let matches = 0;
 let delay = 1200;
 
 const game = document.getElementById('game');
@@ -125,10 +131,28 @@ grid.addEventListener('click', event => {
         }
         if (firstGuess && secondGuess) {
             if (firstGuess === secondGuess) {
+                matches++;
                 setTimeout(match, delay);
+                console.log(matches);
             }
             setTimeout(resetGuesses, delay);
         }
     }
+    if(matches === 2) {
+        setTimeout(gameOver, 2000);
+    }
 
 });
+
+function gameOver() {
+    document.getElementById("game").style.display = "none";
+    document.getElementById("gameOver-screen").style.display = "flex";
+}
+
+function playAgain() {
+    document.getElementById("game").style.display = "flex";
+    document.getElementById("gameOver-screen").style.display = "none";
+    //reset the matches counter
+    matches = 0;
+}
+playAgainButton.addEventListener("click", playAgain);

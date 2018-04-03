@@ -2,22 +2,31 @@
 <html lang="en">
 
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-  <title>Memory Game</title>
+    <title>Memory Game</title>
 
-  <link rel="stylesheet" href="css/style.css">
-  <link rel="icon" type="image/png" href="img/mushroom.png">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" type="image/png" href="img/mushroom.png">
 
 </head>
 
 <body>
 
-  <div id="game"></div>
+    <div id="game"></div>
 
-  <script src="js/script.js"></script>
+    <div id="gameOver-screen">
+        <div>
+            <p id="title-text">You won the Game!</p>
+            <p id='welcome-text'>You are really smart!</p>
+            <p id='welcome-text'>Your score was: </p>
+        </div>
+        <button id='playAgain-button'>Play Again</button>
+    </div>
+
+    <script src="js/script.js"></script>
 </body>
 
 </html>

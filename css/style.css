@@ -63,3 +63,29 @@ body {
 /*.front {
     background: #6589F9 !important;
 }*/
+
+#playGame-button,
+#playAgain-button,
+#gameOver-button{
+    width: 100px;
+    margin: auto;
+    background-color: #4CAF50;
+    border: 5px solid #dadfe3;
+    border-radius: 20px;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    display: flex-inline;
+    font-size: 16px;
+}
+
+#gameOver-screen {
+    max-width: 960px;
+    height: 440px;
+    background-color: #6589F9;
+    display: none;
+    flex-flow: column wrap;
+    justify-content: center;
+   /* border: 5px solid #dadfe3;
+    border-radius: 20px;*/
+}
