@@ -2,6 +2,7 @@ let firstGuess = '';
 let secondGuess = '';
 let count = 0;
 let matches = 0;
+let tries = 0;
 let delay = 1200;
 
 // some variables to hold the buttons
@@ -58,24 +59,18 @@ const cardsArray = [{
         'img': 'img/goomba.png',
   },
 ];
-
+// start the game
 initialize();
 
 function initialize(firstTime) {
     const gameGrid = cardsArray
         .concat(cardsArray)
         .sort(() => 0.5 - Math.random());
-
-
-    console.log("Length is: ", gameGrid.length);
-
-
-
     const game = document.getElementById('game');
     const grid = document.createElement('section');
+
     grid.setAttribute('class', 'grid');
     game.appendChild(grid);
-
     gameGrid.forEach(item => {
         const {
             name,
@@ -122,7 +117,6 @@ function initialize(firstTime) {
         if (
             // if click was not on a card
             clicked.nodeName === 'SECTION' ||
-
             // if already matched, do not click
             clicked.parentNode.classList.contains('match')
         ) {
@@ -136,38 +130,42 @@ function initialize(firstTime) {
             } else {
                 secondGuess = clicked.parentNode.dataset.name;
                 clicked.parentNode.classList.add('selected');
+                tries++;
+                console.log("Tries: ", tries);
             }
             if (firstGuess && secondGuess) {
                 if (firstGuess === secondGuess) {
                     matches++;
                     setTimeout(match, delay);
-                    console.log(matches);
+                    // console.log(matches);
                 }
                 setTimeout(resetGuesses, delay);
             }
         }
-        if (matches === gameGrid.length/2) {
-            setTimeout(gameOver, 2000);
+        if (matches === 2) {
+            setTimeout(gameOver, delay);
         }
-
     });
 }
 
 function gameOver() {
+    // hide the game screen
     document.getElementById("game").style.display = "none";
+    // show the game over screen
     document.getElementById("gameOver-screen").style.display = "flex";
+    document.getElementById('score').textContent = "Your score was " + tries + " tries!";
 }
 
 function playAgain() {
-
+    // hide the game over screen
     document.getElementById("gameOver-screen").style.display = "none";
     //reset the matches counter
     matches = 0;
     count = 0;
+    tries = 0;
+    // show the game screen
     document.getElementById("game").style.display = "flex";
-    //initialize();
-
-    // reloads the game
+    // reload the game
     document.location.reload();
 }
 playAgainButton.addEventListener("click", playAgain);
