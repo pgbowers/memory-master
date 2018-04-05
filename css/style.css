@@ -39,7 +39,7 @@ body {
 
 .front {
     z-index: 2;
-    background: #FAB942 url('../img/question.gif') no-repeat center center / contain;
+    background: url('../img/redquestion300.png') no-repeat center center / contain;
 }
 
 .back {
@@ -67,8 +67,9 @@ body {
 #playGame-button,
 #playAgain-button,
 #gameOver-button{
-    width: 100px;
+    width: 150px;
     margin: auto;
+    margin-bottom: 20px;;
     background-color: #4CAF50;
     border: 5px solid #dadfe3;
     border-radius: 20px;
@@ -76,16 +77,26 @@ body {
     text-align: center;
     text-decoration: none;
     display: flex-inline;
-    font-size: 16px;
+    font-size: 24px;
 }
 
 #gameOver-screen {
     max-width: 960px;
-    height: 440px;
+    margin: auto;
     background-color: #6589F9;
     display: none;
     flex-flow: column wrap;
     justify-content: center;
-   /* border: 5px solid #dadfe3;
-    border-radius: 20px;*/
+    font-size: 32px;
+    color: antiquewhite;
+    text-align: center;
+    border: 5px solid #dadfe3;
+    border-radius: 20px;
 }
+/*#score {
+    position: absolute;
+    margin: auto;
+    text-align: center;
+    font-size: 20px;
+
+}*/

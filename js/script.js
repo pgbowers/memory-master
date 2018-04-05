@@ -11,52 +11,52 @@ var gameOverButton = document.getElementById("gameOver-button");
 var playAgainButton = document.getElementById("playAgain-button");
 
 const cardsArray = [{
-        'name': 'shell',
-        'img': 'img/blueshell.png',
+        'name': 'andalusian',
+        'img': 'img/andalusian_sm.jpg',
   },
     {
-        'name': 'star',
-        'img': 'img/star.png',
+        'name': 'arabian',
+        'img': 'img/arabian_sm.jpg',
   },
     {
-        'name': 'bobomb',
-        'img': 'img/bobomb.png',
+        'name': 'belgian',
+        'img': 'img/belgian.jpg',
   },
     {
-        'name': 'mario',
-        'img': 'img/mario.png',
+        'name': 'clydesdale',
+        'img': 'img/clydesdale_sm.jpg',
   },
     {
-        'name': 'luigi',
-        'img': 'img/luigi.png',
+        'name': 'gypsy',
+        'img': 'img/gypsy_sm.jpg',
   },
     {
-        'name': 'peach',
-        'img': 'img/peach.png',
+        'name': 'haflinger',
+        'img': 'img/haflinger_sm.jpg',
   },
     {
-        'name': '1up',
-        'img': 'img/1up.png',
+        'name': 'mountain',
+        'img': 'img/mountain_sm.jpg',
   },
     {
-        'name': 'mushroom',
-        'img': 'img/mushroom.png',
+        'name': 'percheron',
+        'img': 'img/percheron_sm.jpg',
   },
     {
-        'name': 'thwomp',
-        'img': 'img/thwomp.png',
+        'name': 'quarab',
+        'img': 'img/quarab_sm.jpg',
   },
     {
-        'name': 'bulletbill',
-        'img': 'img/bulletbill.png',
+        'name': 'quarter',
+        'img': 'img/quarter_sm.jpg',
   },
     {
-        'name': 'coin',
-        'img': 'img/coin.png',
+        'name': 'shetland',
+        'img': 'img/shetland_sm.jpg',
   },
     {
-        'name': 'goomba',
-        'img': 'img/goomba.png',
+        'name': 'thoroughbred',
+        'img': 'img/thoroughbred_sm.jpg',
   },
 ];
 // start the game
