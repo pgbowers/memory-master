@@ -11,42 +11,42 @@ var gameOverButton = document.getElementById("gameOver-button");
 var playAgainButton = document.getElementById("playAgain-button");
 
 const cardsArray = [{
-        'name': 'andalusian',
-        'desc': 'has four legs',
+        'name': 'Andalusian',
+        'desc': 'Throughout its history, it has been known for its prowess as a war horse, and was prized by the nobility.',
         'img': 'img/andalusian_sm.jpg',
   },
     {
-        'name': 'arabian',
+        'name': 'Arabian',
         'desc': 'has four legs',
         'img': 'img/arabian_sm.jpg',
   },
     {
-        'name': 'belgian',
+        'name': 'Belgian',
         'desc': 'has four legs',
         'img': 'img/belgian.jpg',
   },
     {
-        'name': 'clydesdale',
+        'name': 'Clydesdale',
         'desc': 'has four legs',
         'img': 'img/clydesdale_sm.jpg',
   },
     {
-        'name': 'gypsy',
+        'name': 'Gypsy',
         'desc': 'has four legs',
         'img': 'img/gypsy_sm.jpg',
   },
     {
-        'name': 'haflinger',
+        'name': 'Haflinger',
         'desc': 'has four legs',
         'img': 'img/haflinger_sm.jpg',
   },
     {
-        'name': 'mountain',
+        'name': 'Mountain',
         'desc': 'has four legs',
         'img': 'img/mountain_sm.jpg',
   },
     {
-        'name': 'percheron',
+        'name': 'Percheron',
         'desc': 'has four legs',
         'img': 'img/percheron_sm.jpg',
   },
@@ -156,9 +156,27 @@ function initialize(firstTime) {
 
         // clicking allowed only on matched pairs
         if (newClick.parentNode.classList.contains('match')) {
-            console.log("This is: ", test1, test2);
+            // make the modal window visible
+            modal.style.display = "block";
+            // write to the modal window
+            document.getElementById('modal2').textContent = "This horse is the " + test1 +" " + test2;
         };
     });
+}
+// code a modal window to show more detail about a matched pair
+// Get the modal
+var modal = document.getElementById('myModal');
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+// When the user clicks on <span> (x), close the modal
+span.onclick = function () {
+    modal.style.display = "none";
+}
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
 }
 
 function gameOver() {
