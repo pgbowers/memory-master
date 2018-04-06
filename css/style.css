@@ -10,7 +10,8 @@ body {
 }
 
 .grid {
-    max-width: 960px;
+    /* gives a 4 x 4 grid at 150 px each */
+    max-width: 640px;
     margin: 0 auto;
     display: flex;
     flex-wrap: wrap;

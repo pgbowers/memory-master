@@ -12,52 +12,45 @@ var playAgainButton = document.getElementById("playAgain-button");
 
 const cardsArray = [{
         'name': 'andalusian',
+        'desc': 'has four legs',
         'img': 'img/andalusian_sm.jpg',
   },
     {
         'name': 'arabian',
+        'desc': 'has four legs',
         'img': 'img/arabian_sm.jpg',
   },
     {
         'name': 'belgian',
+        'desc': 'has four legs',
         'img': 'img/belgian.jpg',
   },
     {
         'name': 'clydesdale',
+        'desc': 'has four legs',
         'img': 'img/clydesdale_sm.jpg',
   },
     {
         'name': 'gypsy',
+        'desc': 'has four legs',
         'img': 'img/gypsy_sm.jpg',
   },
     {
         'name': 'haflinger',
+        'desc': 'has four legs',
         'img': 'img/haflinger_sm.jpg',
   },
     {
         'name': 'mountain',
+        'desc': 'has four legs',
         'img': 'img/mountain_sm.jpg',
   },
     {
         'name': 'percheron',
+        'desc': 'has four legs',
         'img': 'img/percheron_sm.jpg',
   },
-    {
-        'name': 'quarab',
-        'img': 'img/quarab_sm.jpg',
-  },
-    {
-        'name': 'quarter',
-        'img': 'img/quarter_sm.jpg',
-  },
-    {
-        'name': 'shetland',
-        'img': 'img/shetland_sm.jpg',
-  },
-    {
-        'name': 'thoroughbred',
-        'img': 'img/thoroughbred_sm.jpg',
-  },
+
 ];
 // start the game
 initialize();
@@ -74,12 +67,14 @@ function initialize(firstTime) {
     gameGrid.forEach(item => {
         const {
             name,
+            desc,
             img
         } = item;
 
         const card = document.createElement('div');
         card.classList.add('card');
         card.dataset.name = name;
+        card.dataset.desc = desc;
 
         const front = document.createElement('div');
         front.classList.add('front');
@@ -117,6 +112,8 @@ function initialize(firstTime) {
         if (
             // if click was not on a card
             clicked.nodeName === 'SECTION' ||
+            // don't click twice on a card
+            clicked.parentNode.classList.contains('selected') ||
             // if already matched, do not click
             clicked.parentNode.classList.contains('match')
         ) {
@@ -126,6 +123,8 @@ function initialize(firstTime) {
             count++;
             if (count === 1) {
                 firstGuess = clicked.parentNode.dataset.name;
+
+                console.log("first guess is: ", firstGuess);
                 clicked.parentNode.classList.add('selected');
             } else {
                 secondGuess = clicked.parentNode.dataset.name;
@@ -142,9 +141,23 @@ function initialize(firstTime) {
                 setTimeout(resetGuesses, delay);
             }
         }
-        if (matches === 2) {
+        if (matches === 3) {
             setTimeout(gameOver, delay);
         }
+    });
+
+    // function for image zoom and info
+    grid.addEventListener('click', event => {
+        const newClick = event.target;
+        // get the name of the horse clicked
+        var test1 = newClick.parentNode.dataset.name;
+        // get the description
+        var test2 = newClick.parentNode.dataset.desc;
+
+        // clicking allowed only on matched pairs
+        if (newClick.parentNode.classList.contains('match')) {
+            console.log("This is: ", test1, test2);
+        };
     });
 }
 
