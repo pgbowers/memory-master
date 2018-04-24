@@ -12,7 +12,7 @@ var playAgainButton = document.getElementById("playAgain-button");
 
 const cardsArray = [{
         'name': 'Andalusian',
-        'desc': 'Throughout its history, it has been known for its prowess as a war horse, and was prized by the nobility.',
+        'desc': 'Throughout its history, the Andalusian has been known for its prowess as a war horse, and was prized by the nobility.',
         'img': 'img/andalusian_sm.jpg',
   },
     {
