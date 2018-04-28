@@ -81,7 +81,7 @@ function getSomeImages() {
 // start the game
 initialize();
 
-function initialize(firstTime) {
+function initialize() {
 
     getSomeImages();
 
@@ -172,6 +172,9 @@ function initialize(firstTime) {
 
     // function for image zoom and info
     grid.addEventListener('click', event => {
+
+        // test4.removeChild(myImage);
+
         const newClick = event.target;
         // get the name of the horse clicked
         var modal_name = newClick.parentNode.dataset.name;
@@ -184,8 +187,8 @@ function initialize(firstTime) {
         if (newClick.parentNode.classList.contains('match')) {
             // make the modal window visible
             modal.style.display = "block";
-            // write to the modal window
 
+            // write to the modal window
             myImage = new Image(300, 300);
             myImage.src = modal_img;
 
