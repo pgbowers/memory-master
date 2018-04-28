@@ -4,6 +4,8 @@ let count = 0;
 let matches = 0;
 let tries = 0;
 let delay = 1200;
+let test4 = '';
+let myImage = '';
 
 var gameGrid = [];
 
@@ -59,7 +61,7 @@ function random(n) {
     return Math.floor(Math.random() * n);
 }
 
-//apr 24 limit size of grid
+//Get the images for this game
 function getSomeImages() {
     var imagescopy = cardsArray.slice();
     var randomImages = [];
@@ -69,14 +71,11 @@ function getSomeImages() {
         var index = random(imagescopy.length);
         randomImages.push(imagescopy.splice(index, 1)[0]);
     }
-    console.log("Line 70: ", randomImages);
-    // this also doubles the selected images
-   //var gameGrid = randomImages.concat(randomImages.slice());
+
+    // this doubles the selected images in random order
     gameGrid = randomImages.concat(randomImages).sort(() => 0.5 - Math.random());
 
-   return gameGrid;
-
-    //console.log("Line 167: " , randomImages);
+    return gameGrid;
 }
 
 // start the game
@@ -86,16 +85,11 @@ function initialize(firstTime) {
 
     getSomeImages();
 
-    //const gameGrid = cardsArray
-    //    .concat(cardsArray)
-    //    .sort(() => 0.5 - Math.random());
     const game = document.getElementById('game');
     const grid = document.createElement('section');
 
     grid.setAttribute('class', 'grid');
     game.appendChild(grid);
-
-    console.log("Line 96: ", gameGrid);
 
     gameGrid.forEach(item => {
         const {
@@ -108,6 +102,7 @@ function initialize(firstTime) {
         card.classList.add('card');
         card.dataset.name = name;
         card.dataset.desc = desc;
+        card.dataset.img = img;
 
         const front = document.createElement('div');
         front.classList.add('front');
@@ -156,20 +151,16 @@ function initialize(firstTime) {
             count++;
             if (count === 1) {
                 firstGuess = clicked.parentNode.dataset.name;
-
-                console.log("first guess is: ", firstGuess);
                 clicked.parentNode.classList.add('selected');
             } else {
                 secondGuess = clicked.parentNode.dataset.name;
                 clicked.parentNode.classList.add('selected');
                 tries++;
-                console.log("Tries: ", tries);
             }
             if (firstGuess && secondGuess) {
                 if (firstGuess === secondGuess) {
                     matches++;
                     setTimeout(match, delay);
-                    // console.log(matches);
                 }
                 setTimeout(resetGuesses, delay);
             }
@@ -183,16 +174,27 @@ function initialize(firstTime) {
     grid.addEventListener('click', event => {
         const newClick = event.target;
         // get the name of the horse clicked
-        var test1 = newClick.parentNode.dataset.name;
+        var modal_name = newClick.parentNode.dataset.name;
         // get the description
-        var test2 = newClick.parentNode.dataset.desc;
+        var modal_desc = newClick.parentNode.dataset.desc;
+        //get the image
+        var modal_img = newClick.parentNode.dataset.img;
 
         // clicking allowed only on matched pairs
         if (newClick.parentNode.classList.contains('match')) {
             // make the modal window visible
             modal.style.display = "block";
             // write to the modal window
-            document.getElementById('modal2').textContent = "This horse is the " + test1 +" " + test2;
+
+            myImage = new Image(300, 300);
+            myImage.src = modal_img;
+
+            //Show the image
+            test4 = document.getElementById('horse_image');
+            test4.appendChild(myImage);
+
+            //Show name and description
+            document.getElementById('modal2').textContent = "This horse is the " + modal_name + " " + modal_desc;
         };
     });
 }
@@ -204,11 +206,13 @@ var span = document.getElementsByClassName("close")[0];
 // When the user clicks on <span> (x), close the modal
 span.onclick = function () {
     modal.style.display = "none";
+    test4.removeChild(myImage);
 }
 // When the user clicks anywhere outside of the modal, close it
-window.onclick = function(event) {
+window.onclick = function (event) {
     if (event.target == modal) {
         modal.style.display = "none";
+        test4.removeChild(myImage);
     }
 }
 
