@@ -5,6 +5,8 @@ let matches = 0;
 let tries = 0;
 let delay = 1200;
 
+var gameGrid = [];
+
 // some variables to hold the buttons
 var playGameButton = document.getElementById("playGame-button");
 var gameOverButton = document.getElementById("gameOver-button");
@@ -52,18 +54,49 @@ const cardsArray = [{
   },
 
 ];
+// apr24 random generator
+function random(n) {
+    return Math.floor(Math.random() * n);
+}
+
+//apr 24 limit size of grid
+function getSomeImages() {
+    var imagescopy = cardsArray.slice();
+    var randomImages = [];
+
+    // this is where we pick 12 images (two sets of 6)
+    for (var i = 0; i < 6; i++) {
+        var index = random(imagescopy.length);
+        randomImages.push(imagescopy.splice(index, 1)[0]);
+    }
+    console.log("Line 70: ", randomImages);
+    // this also doubles the selected images
+   //var gameGrid = randomImages.concat(randomImages.slice());
+    gameGrid = randomImages.concat(randomImages).sort(() => 0.5 - Math.random());
+
+   return gameGrid;
+
+    //console.log("Line 167: " , randomImages);
+}
+
 // start the game
 initialize();
 
 function initialize(firstTime) {
-    const gameGrid = cardsArray
-        .concat(cardsArray)
-        .sort(() => 0.5 - Math.random());
+
+    getSomeImages();
+
+    //const gameGrid = cardsArray
+    //    .concat(cardsArray)
+    //    .sort(() => 0.5 - Math.random());
     const game = document.getElementById('game');
     const grid = document.createElement('section');
 
     grid.setAttribute('class', 'grid');
     game.appendChild(grid);
+
+    console.log("Line 96: ", gameGrid);
+
     gameGrid.forEach(item => {
         const {
             name,
@@ -141,7 +174,7 @@ function initialize(firstTime) {
                 setTimeout(resetGuesses, delay);
             }
         }
-        if (matches === 3) {
+        if (matches === 6) {
             setTimeout(gameOver, delay);
         }
     });
