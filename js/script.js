@@ -5,11 +5,12 @@ let matches = 0;
 let tries = 0;
 let delay = 1200;
 let test4 = '';
+
 let myImage = '';
 
 var gameGrid = [];
 
-// some variables to hold the buttons
+//Some variables to hold the buttons
 var playGameButton = document.getElementById("playGame-button");
 var gameOverButton = document.getElementById("gameOver-button");
 var playAgainButton = document.getElementById("playAgain-button");
@@ -56,13 +57,13 @@ const cardsArray = [{
   },
 
 ];
-// apr24 random generator
-function random(n) {
+//Random generator
+const random = (n) => {
     return Math.floor(Math.random() * n);
 }
 
 //Get the images for this game
-function getSomeImages() {
+const getSomeImages = () => {
     var imagescopy = cardsArray.slice();
     var randomImages = [];
 
@@ -78,10 +79,7 @@ function getSomeImages() {
     return gameGrid;
 }
 
-// start the game
-initialize();
-
-function initialize() {
+const initialize = () => {
 
     getSomeImages();
 
@@ -173,8 +171,6 @@ function initialize() {
     // function for image zoom and info
     grid.addEventListener('click', event => {
 
-        // test4.removeChild(myImage);
-
         const newClick = event.target;
         // get the name of the horse clicked
         var modal_name = newClick.parentNode.dataset.name;
@@ -200,26 +196,34 @@ function initialize() {
             document.getElementById('modal2').textContent = "This horse is the " + modal_name + " " + modal_desc;
         };
     });
-}
-// code a modal window to show more detail about a matched pair
-// Get the modal
+};
+
+//Start the game
+initialize();
+
+//Code a modal window to show more detail about a matched pair
+//Get the modal
 var modal = document.getElementById('myModal');
-// Get the <span> element that closes the modal
+//Get the <span> element that closes the modal
 var span = document.getElementsByClassName("close")[0];
-// When the user clicks on <span> (x), close the modal
+//When the user clicks on <span> (x), close the modal
 span.onclick = function () {
-    modal.style.display = "none";
-    test4.removeChild(myImage);
+    clearModal();
 }
-// When the user clicks anywhere outside of the modal, close it
+
+//When the user clicks anywhere outside of the modal, close it
 window.onclick = function (event) {
     if (event.target == modal) {
-        modal.style.display = "none";
-        test4.removeChild(myImage);
+        clearModal();
     }
 }
 
-function gameOver() {
+const clearModal = () => {
+    modal.style.display = "none";
+    test4.removeChild(myImage);
+}
+
+const gameOver = () => {
     // hide the game screen
     document.getElementById("game").style.display = "none";
     // show the game over screen
@@ -227,7 +231,7 @@ function gameOver() {
     document.getElementById('score').textContent = "Your score was " + tries + " tries!";
 }
 
-function playAgain() {
+const playAgain = () => {
     // hide the game over screen
     document.getElementById("gameOver-screen").style.display = "none";
     //reset the matches counter
@@ -239,4 +243,5 @@ function playAgain() {
     // reload the game
     document.location.reload();
 }
+
 playAgainButton.addEventListener("click", playAgain);
