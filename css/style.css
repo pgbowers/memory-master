@@ -44,6 +44,8 @@ body {
 }
 
 .back {
+    height: 150px;
+    width: 150px;
     transform: rotateY(180deg);
     background-color: #6589F9;
     background-size: contain;
@@ -122,6 +124,18 @@ body {
     margin: 15% auto; /* 15% from the top and centered */
     padding: 20px;
     border: 5px solid #888;
-    font-size: 24px;
+
     width: 50%; /* Could be more or less, depending on screen size */
+}
+
+#horse_image {
+    display: block;
+    margin: auto;
+    background-size: contain;
+
+   }
+
+#modal2 {
+    font-family: 'Comic Sans MS', 'Times New Roman', Times, serif;
+    font-size: 24px;
 }

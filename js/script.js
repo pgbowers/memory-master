@@ -17,12 +17,12 @@ var playAgainButton = document.getElementById("playAgain-button");
 
 const cardsArray = [{
         'name': 'Andalusian',
-        'desc': 'Throughout its history, the Andalusian has been known for its prowess as a war horse, and was prized by the nobility.',
+        'desc': 'The Andalusian is from the Iberian Peninsula of Spain, where its ancestors have lived for thousands of years. Throughout its history, the Andalusian has been known as a great war horse, and was prized by kings and princes.',
         'img': 'img/andalusian_sm.jpg',
   },
     {
         'name': 'Arabian',
-        'desc': 'has four legs',
+        'desc': 'The Arabian is from the Arabian Peninsula in the Middle East. With a distinctive head and high tail carriage, the Arabian is one of the most easily recognizable horses in the world and is also one of the oldest breeds dating back 4,500 years.',
         'img': 'img/arabian_sm.jpg',
   },
     {
@@ -32,28 +32,43 @@ const cardsArray = [{
   },
     {
         'name': 'Clydesdale',
-        'desc': 'The Clydesdale is a draught horse developed in the county of Clydesdale in Scotland. Clydesdales are used for farming and hauling loads but they are also used as drum horses by the British Household Cavalry!',
-        'img': 'img/clydesdale_sm.jpg',
+        'desc': 'The Clydesdale is a draught horse from the county of Clydesdale in Scotland. Clydesdales are used for farming and hauling loads but they are also used as drum horses by the British Household Cavalry!',
+        'img': 'img/clydesdale.jpg',
   },
     {
         'name': 'Gypsy',
-        'desc': 'has four legs',
+        'desc': 'The Gypsy Horse is a type of domestic horse from the British Isles. It is small, solidly-built and often, but not always, has white splashes on its sides and underbelly and long hair on its legs.',
         'img': 'img/gypsy_sm.jpg',
   },
     {
         'name': 'Haflinger',
-        'desc': 'The Haflinger was developed in Austria and northern Italy during the late nineteenth century. Haflinger horses are relatively small and are always chestnut with flaxen coloured manes. Haflingers have many uses including light draft and harness work as well as endurance riding, dressage, equestrian vaulting and therapeutic riding.',
+        'desc': 'The Haflinger came from Austria and northern Italy during the late 19th century. Haflinger horses are relatively small and are always chestnut coloured with flaxen coloured manes. Haflingers have many uses including light draft and harness work as well as endurance riding, dressage, equestrian vaulting and therapeutic riding.',
         'img': 'img/haflinger_sm.jpg',
   },
     {
         'name': 'Mountain',
-        'desc': 'has four legs',
+        'desc': 'The Mountain Pleasure Horse comes from the Appalachian Mountains of Eastern Kentucky in the 17th century. They have a smooth ambling gait which made them favorite mounts for traveling between the sparsely settled colonies, especially in rugged terrain.',
         'img': 'img/mountain_sm.jpg',
   },
     {
         'name': 'Percheron',
-        'desc': 'The Percheron is a breed of draft horse that originated in France. Percherons are used for parades, sleigh rides and hayrides, as well as being used to pull carriages in large cities.',
-        'img': 'img/percheron_sm.jpg',
+        'desc': 'The Percheron is a breed of draft horse that came from France. Percherons are used for parades, sleigh rides and hayrides, as well as being used to pull carriages in large cities.',
+        'img': 'img/percheron_lg.jpg',
+  },
+   {
+        'name': 'Quarter',
+        'desc': 'The Quarter Horse, is an American breed of horse that excels at sprinting short distances. Its name came from its ability to outdistance other horses in races of a quarter mile or less; some have been clocked at speeds up to 88 km/h. The Quarter Horse is well known both as a race horse and for its performance in rodeos, horse shows and as a working ranch horse.',
+        'img': 'img/quarter.jpg',
+  },
+                    {
+        'name': 'Shetland',
+        'desc': 'The Shetland is from the Shetland Isles. Shetland ponies have heavy coats, short legs and are quite intelligent. They are a very strong ponies, used for riding, driving and carrying loads.',
+        'img': 'img/shetland_sm.jpg',
+  },
+                    {
+        'name': 'Thoroughbred',
+        'desc': 'The Thoroughbred was developed in England in the 17th and 18th centuries. Thoroughbreds are used mainly for racing, but are also used for show jumping, combined training, dressage and polo.',
+        'img': 'img/thoroughbred_sm.jpg',
   },
 
 ];
@@ -185,7 +200,7 @@ const initialize = () => {
             modal.style.display = "block";
 
             // write to the modal window
-            myImage = new Image(300, 300);
+            myImage = new Image(400, 350);
             myImage.src = modal_img;
 
             //Show the image
