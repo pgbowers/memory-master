@@ -27,12 +27,12 @@ const cardsArray = [{
   },
     {
         'name': 'Belgian',
-        'desc': 'has four legs',
+        'desc': 'The Belgian, also known as the Belgian Heavy Horse, is a draft horse from the Brabant region of Belgium. It is one of the strongest of the heavy breeds. Belgians are still used as working animals, but have also become popular as show horses, and pleasure riding horses.',
         'img': 'img/belgian.jpg',
   },
     {
         'name': 'Clydesdale',
-        'desc': 'has four legs',
+        'desc': 'The Clydesdale is a draught horse developed in the county of Clydesdale in Scotland. Clydesdales are used for farming and hauling loads but they are also used as drum horses by the British Household Cavalry!',
         'img': 'img/clydesdale_sm.jpg',
   },
     {
@@ -42,7 +42,7 @@ const cardsArray = [{
   },
     {
         'name': 'Haflinger',
-        'desc': 'has four legs',
+        'desc': 'The Haflinger was developed in Austria and northern Italy during the late nineteenth century. Haflinger horses are relatively small and are always chestnut with flaxen coloured manes. Haflingers have many uses including light draft and harness work as well as endurance riding, dressage, equestrian vaulting and therapeutic riding.',
         'img': 'img/haflinger_sm.jpg',
   },
     {
@@ -52,7 +52,7 @@ const cardsArray = [{
   },
     {
         'name': 'Percheron',
-        'desc': 'has four legs',
+        'desc': 'The Percheron is a breed of draft horse that originated in France. Percherons are used for parades, sleigh rides and hayrides, as well as being used to pull carriages in large cities.',
         'img': 'img/percheron_sm.jpg',
   },
 
@@ -193,7 +193,7 @@ const initialize = () => {
             test4.appendChild(myImage);
 
             //Show name and description
-            document.getElementById('modal2').textContent = "This horse is the " + modal_name + " " + modal_desc;
+            document.getElementById('modal2').textContent = modal_desc;
         };
     });
 };
