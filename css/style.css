@@ -80,7 +80,28 @@ body {
     text-align: center;
     text-decoration: none;
     display: flex-inline;
+    font-family: 'Comic Sans MS', 'Times New Roman', Times, serif;
     font-size: 24px;
+}
+
+#game {
+    display: none;
+}
+
+#gameStart-screen {
+    max-width: 960px;
+    max-height: 600px;
+    margin: auto;
+    background-color: #6589F9;
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+    font-family: 'Comic Sans MS', 'Times New Roman', Times, serif;
+    font-size: 32px;
+    color: antiquewhite;
+    text-align: center;
+    border: 5px solid #dadfe3;
+    border-radius: 20px;
 }
 
 #gameOver-screen {
@@ -90,6 +111,7 @@ body {
     display: none;
     flex-flow: column wrap;
     justify-content: center;
+    font-family: 'Comic Sans MS', 'Times New Roman', Times, serif;
     font-size: 32px;
     color: antiquewhite;
     text-align: center;

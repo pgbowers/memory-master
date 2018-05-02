@@ -55,23 +55,22 @@ const cardsArray = [{
         'desc': 'The Percheron is a breed of draft horse that came from France. Percherons are used for parades, sleigh rides and hayrides, as well as being used to pull carriages in large cities.',
         'img': 'img/percheron_lg.jpg',
   },
-   {
+    {
         'name': 'Quarter',
         'desc': 'The Quarter Horse, is an American breed of horse that excels at sprinting short distances. Its name came from its ability to outdistance other horses in races of a quarter mile or less; some have been clocked at speeds up to 88 km/h. The Quarter Horse is well known both as a race horse and for its performance in rodeos, horse shows and as a working ranch horse.',
         'img': 'img/quarter.jpg',
   },
-                    {
+    {
         'name': 'Shetland',
         'desc': 'The Shetland is from the Shetland Isles. Shetland ponies have heavy coats, short legs and are quite intelligent. They are a very strong ponies, used for riding, driving and carrying loads.',
         'img': 'img/shetland_sm.jpg',
   },
-                    {
+    {
         'name': 'Thoroughbred',
         'desc': 'The Thoroughbred was developed in England in the 17th and 18th centuries. Thoroughbreds are used mainly for racing, but are also used for show jumping, combined training, dressage and polo.',
         'img': 'img/thoroughbred_sm.jpg',
   },
-
-];
+   ];
 //Random generator
 const random = (n) => {
     return Math.floor(Math.random() * n);
@@ -99,7 +98,8 @@ const initialize = () => {
     getSomeImages();
 
     const game = document.getElementById('game');
-    const grid = document.createElement('section');
+
+    grid = document.createElement('section');
 
     grid.setAttribute('class', 'grid');
     game.appendChild(grid);
@@ -127,6 +127,7 @@ const initialize = () => {
         grid.appendChild(card);
         card.appendChild(front);
         card.appendChild(back);
+
     });
 
     // function to record a match of two cards
@@ -178,7 +179,7 @@ const initialize = () => {
                 setTimeout(resetGuesses, delay);
             }
         }
-        if (matches === 6) {
+        if (matches === 2) {
             setTimeout(gameOver, delay);
         }
     });
@@ -213,9 +214,6 @@ const initialize = () => {
     });
 };
 
-//Start the game
-initialize();
-
 //Code a modal window to show more detail about a matched pair
 //Get the modal
 var modal = document.getElementById('myModal');
@@ -246,17 +244,48 @@ const gameOver = () => {
     document.getElementById('score').textContent = "Your score was " + tries + " tries!";
 }
 
-const playAgain = () => {
-    // hide the game over screen
-    document.getElementById("gameOver-screen").style.display = "none";
+const playGame = () => {
+    // hide the welcome screen
+    document.getElementById("gameStart-screen").style.display = "none";
     //reset the matches counter
     matches = 0;
     count = 0;
     tries = 0;
-    // show the game screen
+    //show the game screen
     document.getElementById("game").style.display = "flex";
-    // reload the game
-    document.location.reload();
+    //start the game
+    initialize();
 }
 
+const playAgain = () => {
+    // hide the game over screen
+    document.getElementById("gameOver-screen").style.display = "none";
+    //reset the counters
+    matches = 0;
+    count = 0;
+    tries = 0;
+    //clear the old grid
+    grid.parentNode.removeChild(grid);
+    // show the game screen
+    document.getElementById("game").style.display = "flex";
+    //start the game
+    initialize();
+}
+
+function quitGame() {
+    // hide the game over screen
+    document.getElementById("gameOver-screen").style.display = "none";
+    //reset the counters
+    matches = 0;
+    count = 0;
+    tries = 0;
+    //clear the old grid
+    grid.parentNode.removeChild(grid);
+    gameOver-screen.close();
+}
+
+playGameButton.addEventListener("click", playGame);
+
 playAgainButton.addEventListener("click", playAgain);
+
+//gameOverButton.addEventListener("click", quitGame);
