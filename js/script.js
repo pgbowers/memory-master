@@ -179,7 +179,7 @@ const initialize = () => {
                 setTimeout(resetGuesses, delay);
             }
         }
-        if (matches === 2) {
+        if (matches === 6) {
             setTimeout(gameOver, delay);
         }
     });
