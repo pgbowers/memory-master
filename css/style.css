@@ -58,21 +58,24 @@ body {
 }
 
 /* matched cards will now remain visible */
+
 .match {
-	transform: rotateY(180deg);
+    transform: rotateY(180deg);
 }
 
 /* removed .match so that matched image remains visible */
+
 /*.front {
     background: #6589F9 !important;
 }*/
 
 #playGame-button,
 #playAgain-button,
-#gameOver-button{
+#gameOver-button {
     width: 150px;
     margin: auto;
-    margin-bottom: 20px;;
+    margin-bottom: 20px;
+    ;
     background-color: #4CAF50;
     border: 5px solid #dadfe3;
     border-radius: 20px;
@@ -118,6 +121,7 @@ body {
     border: 5px solid #dadfe3;
     border-radius: 20px;
 }
+
 /*#score {
     position: absolute;
     margin: auto;
@@ -127,37 +131,57 @@ body {
 }*/
 
 /* The Modal (background) */
+
 .modal {
-    display: none; /* Hidden by default */
-    position: fixed; /* Stay in place */
-    z-index: 1; /* Sit on top */
+    display: none;
+    /* Hidden by default */
+    position: fixed;
+    /* Stay in place */
+    z-index: 1;
+    /* Sit on top */
     left: 0;
     top: 0;
-    width: 100%; /* Full width */
-    height: 100%; /* Full height */
-    overflow: auto; /* Enable scroll if needed */
-    background-color: rgb(0,0,0); /* Fallback color */
-    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    width: 100%;
+    /* Full width */
+    height: 100%;
+    /* Full height */
+    overflow: auto;
+    /* Enable scroll if needed */
+    background-color: rgb(0, 0, 0);
+    /* Fallback color */
+    background-color: rgba(0, 0, 0, 0.4);
+    /* Black w/ opacity */
 }
 
 /* Modal Content/Box */
-.modal-content {
+
+#modal-content {
     background-color: #fefefe;
-    margin: 15% auto; /* 15% from the top and centered */
+    margin: 15% auto;
+    /* 15% from the top and centered */
     padding: 20px;
     border: 5px solid #888;
-
-    width: 50%; /* Could be more or less, depending on screen size */
+    width: 50%;
+    /* Could be more or less, depending on screen size */
+    height:80%;
+    overflow: hidden;
 }
 
-#horse_image {
-    display: block;
-    margin: auto;
-    background-size: contain;
-
-   }
-
+#modal-content img {
+    /*display: flex;*/
+    width: 100%;
+}
 #modal2 {
     font-family: 'Comic Sans MS', 'Times New Roman', Times, serif;
     font-size: 24px;
 }
+
+/*#horse_image {
+    display: flex;
+    max-width: 300px;
+    max-height: 300px;
+   /* overflow: hidden;*/
+
+}*/
+
+

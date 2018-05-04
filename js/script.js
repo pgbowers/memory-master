@@ -62,7 +62,7 @@ const cardsArray = [{
   },
     {
         'name': 'Shetland',
-        'desc': 'The Shetland is from the Shetland Isles. Shetland ponies have heavy coats, short legs and are quite intelligent. They are a very strong ponies, used for riding, driving and carrying loads.',
+        'desc': 'The Shetland pony is from the Shetland Isles. Shetland ponies have heavy coats, short legs and are quite intelligent. They are a very strong ponies, used for riding, driving and carrying loads.',
         'img': 'img/shetland_sm.jpg',
   },
     {
@@ -198,10 +198,10 @@ const initialize = () => {
         // clicking allowed only on matched pairs
         if (newClick.parentNode.classList.contains('match')) {
             // make the modal window visible
-            modal.style.display = "block";
+            modal.style.display = "flex";
 
             // write to the modal window
-            myImage = new Image(400, 350);
+            myImage = new Image();
             myImage.src = modal_img;
 
             //Show the image
@@ -281,7 +281,7 @@ function quitGame() {
     tries = 0;
     //clear the old grid
     grid.parentNode.removeChild(grid);
-    gameOver-screen.close();
+    gameOver - screen.close();
 }
 
 playGameButton.addEventListener("click", playGame);
