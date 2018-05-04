@@ -133,12 +133,15 @@ body {
 /* The Modal (background) */
 
 .modal {
-    display: none;
     /* Hidden by default */
-    position: fixed;
+    display: none;
+
     /* Stay in place */
-    z-index: 1;
+    position: fixed;
+
     /* Sit on top */
+    z-index: 1;
+
     left: 0;
     top: 0;
     width: 100%;
@@ -161,19 +164,28 @@ body {
     /* 15% from the top and centered */
     padding: 20px;
     border: 5px solid #888;
-    width: 50%;
+    width: 80%;
     /* Could be more or less, depending on screen size */
-    height:80%;
-    overflow: hidden;
+    height: 80%;
+    overflow: auto;
 }
 
 #modal-content img {
     /*display: flex;*/
-    width: 100%;
+
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 70%;
+
+    /*margin: auto;*/
+
 }
+
 #modal2 {
     font-family: 'Comic Sans MS', 'Times New Roman', Times, serif;
-    font-size: 24px;
+    font-size: 22px;
+
 }
 
 /*#horse_image {
@@ -182,6 +194,6 @@ body {
     max-height: 300px;
    /* overflow: hidden;*/
 
-}*/
+}
 
-
+*/
