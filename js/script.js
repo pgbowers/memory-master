@@ -47,12 +47,12 @@ const cardsArray = [{
   },
     {
         'name': 'Mountain',
-        'desc': 'The Mountain Pleasure Horse comes from the Appalachian Mountains of Eastern Kentucky in the 17th century. They have a smooth ambling gait which made them favorite mounts for traveling between the sparsely settled colonies, especially in rugged terrain.',
+        'desc': 'The Mountain Pleasure Horse came from the Appalachian Mountains of Eastern Kentucky during the 17th century. They have a smooth ambling gait which made them favorite mounts for traveling between the sparsely settled colonies, especially in rugged terrain.',
         'img': 'img/mountain_sm.jpg',
   },
     {
         'name': 'Percheron',
-        'desc': 'The Percheron is a breed of draft horse that came from France. Percherons are used for parades, sleigh rides and hayrides, as well as being used to pull carriages in large cities.',
+        'desc': 'The Percheron is a breed of draft horse that came from France. Percherons are used for parades, sleigh rides and hayrides and pulling carriages in large cities.',
         'img': 'img/percheron_lg.jpg',
   },
     {
@@ -62,7 +62,7 @@ const cardsArray = [{
   },
     {
         'name': 'Shetland',
-        'desc': 'The Shetland pony is from the Shetland Isles. Shetland ponies have heavy coats, short legs and are quite intelligent. They are a very strong ponies, used for riding, driving and carrying loads.',
+        'desc': 'The Shetland pony is from the Shetland Isles. Shetland ponies have heavy coats, short legs and are quite intelligent. They are very strong ponies, used for riding, driving and carrying loads.',
         'img': 'img/shetland_sm.jpg',
   },
     {
@@ -81,13 +81,13 @@ const getSomeImages = () => {
     var imagescopy = cardsArray.slice();
     var randomImages = [];
 
-    // this is where we pick 12 images (two sets of 6)
+    // this is where we pick 6 images from the available array
     for (var i = 0; i < 6; i++) {
         var index = random(imagescopy.length);
         randomImages.push(imagescopy.splice(index, 1)[0]);
     }
 
-    // this doubles the selected images in random order
+    // this doubles the selected images and randomizes the display
     gameGrid = randomImages.concat(randomImages).sort(() => 0.5 - Math.random());
 
     return gameGrid;
@@ -208,7 +208,7 @@ const initialize = () => {
             test4 = document.getElementById('horse_image');
             test4.appendChild(myImage);
 
-            //Show name and description
+            //Show the description
             document.getElementById('modal2').textContent = modal_desc;
         };
     });
